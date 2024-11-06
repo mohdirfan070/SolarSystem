@@ -1,0 +1,303 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.parent {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.dots {
+  background-color: white;
+  border-radius: 100%;
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  animation: blink 0.4s linear 0s infinite alternate;
+}
+
+#containerDiv,
+#infoDiv {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#infoDiv {
+  display: none;
+}
+
+#screen {
+  position: absolute;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    /* box-shadow: 0 0 0px whitesmoke; */
+  }
+}
+
+#cursor {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: rgb(81, 241, 255);
+  transition: all 0.2s linear 0s;
+  box-shadow: 0 0 10px whitesmoke;
+  border-radius: 100%;
+  z-index: 999;
+}
+
+#sun div {
+  transition: all 0.2s linear 0s;
+  display: inline;
+  /* z-index: 20; */
+}
+
+#sun {
+  /* z-index: 999; */
+  box-shadow: 0 0 85px rgb(233, 200, 140);
+  border: 2px solidrgb(233, 200, 140);
+  background-image: url(./sunImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 160%;
+  /* animation: rotateSun 8s linear 0s infinite forwards ; */
+  position: relative;
+  border-radius: 9999px;
+  height: 130px;
+  width: 130px;
+  top: 30%;
+  left: 50%;
+}
+
+#mercury {
+  /* background-color: rgb(183, 184, 185); */
+  animation: revolveMercury 3.2s ease-in-out 0s infinite forwards;
+  background-image: url(./mercuryImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 105%;
+  &:hover::after {
+    content: "Mercury";
+    color: white;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 999;
+  }
+}
+#venus {
+  z-index: 15;
+  /* background-color: #968396; */
+  animation: revolveVenus 6.24s ease-in-out 0s infinite forwards;
+  background-image: url(./venusImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 110%;
+}
+#mars {
+  z-index: 25;
+  /* background-color: #9c2e35; */
+  background: transparent;
+  animation: revolveMars 15.24s ease-in-out 0s infinite forwards;
+  background-image: url(./marsImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 113%;
+}
+#earth {
+  z-index: 26;
+  /* background-color: #5686c5; */
+  animation: revolveEarth 8.6s ease-in-out 0s infinite forwards;
+  background-image: url(./earthImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 110%;
+}
+#jupitor {
+  z-index: 26;
+  /* background-color: #e3b32e; */
+  background: transparent;
+  animation: revolveJupitor 10.984s ease-in-out 0s infinite forwards;
+  background-image: url(./jupitorImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 110%;
+  &:hover::after {
+    content: "Jupitor";
+    color: white;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 999;
+  }
+  
+}
+#uranus {
+  z-index: 26;
+  /* background-color: #e3b32e; */
+  background: transparent;
+  animation: revolveUranus 20.984s ease-in-out 0s infinite forwards;
+  background-image: url(./uranusImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 130%;
+}
+#neptune {
+  z-index: 26;
+  /* background-color: #e3b32e; */
+  background: transparent;
+  animation: revolveNeptune 28.984s ease-in-out 0s infinite forwards;
+  background-image: url(./neptuneImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: 110%;
+}
+@keyframes rotateSun {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes revolveMercury {
+  0% {
+    z-index: -10;
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(1120%, 150%);
+  }
+  100% {
+    transform: translateX(0%, 0%);
+  }
+}
+@keyframes revolveVenus {
+  0% {
+    z-index: -10;
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(1400%, 200%);
+  }
+  100% {
+    transform: translateX(0%, 0%);
+  }
+}
+
+@keyframes revolveMars {
+  0% {
+    z-index: -10;
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(2100%, 190%) rotate(90deg);
+  }
+  100% {
+    transform: translateX(0%, 0%);
+  }
+}
+@keyframes revolveEarth {
+  0% {
+    z-index: -10;
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  50% {
+    transform: translate(1800%, 190%);
+    background-image: url(./earthImage2.png);
+  }
+  100% {
+    transform: translateX(0%, 0%) rotate(0deg);
+  }
+}
+@keyframes revolveJupitor {
+  0% {
+    z-index: -10;
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(1000%, 190%);
+  }
+  100% {
+    transform: translateX(0%, 0%);
+  }
+}
+@keyframes revolveUranus {
+  0% {
+    z-index: -10;
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(1900%, 200%);
+  }
+  100% {
+    transform: translateX(0%, 0%);
+  }
+}
+@keyframes revolveNeptune {
+  0% {
+    z-index: -10;
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(2600%, 200%);
+  }
+  100% {
+    transform: translateX(0%, 0%);
+  }
+}
+
+.fade {
+  transition: all ease 5s;
+  transform: translateX(1000%);
+}
+
+@media (max-width: 770px) {
+  #cursor {
+    display: none;
+  }
+}
+
+#infoDiv {
+  user-select: none;
+  z-index: 888;
+  color: white;
+}
+
+/* .planet:focus .planet:not(:focus) {
+  display: none;
+} */
